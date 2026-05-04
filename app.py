@@ -1,3 +1,6 @@
-name = input()
+from package import Tast
 
-print(f'Hello, {name}')
+num = int(input())
+
+
+print(Tast().f(num))
