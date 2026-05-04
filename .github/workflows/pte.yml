@@ -7,6 +7,15 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+          
+      - name: Checkout the tast-repo
+        uses: actions/checkout@v4
+        with:
+          repository: 'TheJBricks/tast'
+          path: 'tast'
+
+      - name: copy files
+        run: cp tast/package package
 
       - name: Set up Python
         uses: actions/setup-python@v4
