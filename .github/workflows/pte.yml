@@ -15,13 +15,13 @@ jobs:
           path: 'tast'
         
       - name: List files in the repository (pre-copy)
-        run: ls ${{ github.workspace }}
+        run: ls ${{ github.workspace }} --r
 
       - name: copy files
         run: cp tast/package package
         
       - name: List files in the repository (post-copy)
-        run: ls ${{ github.workspace }}
+        run: ls ${{ github.workspace }} --r
 
       - name: Set up Python
         uses: actions/setup-python@v4
