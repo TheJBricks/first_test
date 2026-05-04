@@ -15,13 +15,13 @@ jobs:
           path: 'tast'
         
       - name: List files in the repository (pre-copy)
-        run: ls ${{ github.workspace }} --r
+        run: ls ${{ github.workspace }}
 
       - name: copy files
         run: cp tast/package package
         
       - name: List files in the repository (post-copy)
-        run: ls ${{ github.workspace }} --r
+        run: ls ${{ github.workspace }}
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -35,6 +35,12 @@ jobs:
         run: pyinstaller --console --onefile app.py
 
       - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: app.exe
+          path: dist/*
+      
+      - name: Upload package
         uses: actions/upload-artifact@v4
         with:
           name: app.exe
